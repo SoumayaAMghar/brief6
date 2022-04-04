@@ -16,7 +16,7 @@
             <router-link :to="{ path: '/Signup'}">NewUser</router-link>
           </button>
           <button class="btns_more">
-            <router-link :to="{ path: '/Signup'}">Update</router-link>
+            <router-link :to="{ path: '/Login'}">Login</router-link>
           </button>
     </div>
   </div>
