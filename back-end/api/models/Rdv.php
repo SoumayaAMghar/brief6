@@ -46,12 +46,9 @@ class Rdv{
         $qr='SELECT * from rendezvous where reference="'.$ref.'" ORDER by date , horaire ';
         $res=DB::connect()->prepare($qr);
         $res->execute();
-            return $res->fetchAll(PDO::FETCH_ASSOC);
-            // $res->close();
-            $res=null;
-        // else{
-            return 'no';
-        // }
+
+        return $res->fetchAll(PDO::FETCH_ASSOC);
+
     }
     public function afficherHr($date)
     {
@@ -59,11 +56,6 @@ class Rdv{
         $res=DB::connect()->prepare($qr);
         $res->execute();
             return $res->fetchAll(PDO::FETCH_COLUMN);
-            // $res->close();
-            $res=null;
-        // else{
-            return [];
-        // }
     }
 
      public function modifierRdv()

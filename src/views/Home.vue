@@ -7,7 +7,6 @@
       <router-link class="link" :to="{ path: '/Login'}">Login</router-link>
 
     </div>
-    <!-- <button class="logout" @click="logout">LOGOUT</button> -->
   </div>
  
   <div class="container">
@@ -18,22 +17,18 @@
           <button class="btns_more">
             <router-link :to="{ path: '/Login'}">Login</router-link>
           </button>
-    </div>
+    </div> 
   </div>
   </div>
-   <router-view />
 </template>
 <script>
 export default {
   name: "Home",
-  props: {
-    msg: String,
-  },
 };
 </script>
 <style>
 
-div#nav {
+#nav {
   display: flex;
   justify-content: space-between;
 }
@@ -47,18 +42,6 @@ div#nav {
 .link {
   margin: 10px;
   text-decoration: none;
-}
-.logout {
-  width: 100px;
-  height: 40px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  background-color: #4e7af3;
-  font-weight: bold;
-}
-.logout:hover {
-  background-color: #f0d124;
 }
 
 .link {

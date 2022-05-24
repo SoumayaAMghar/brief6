@@ -8,59 +8,29 @@
     </div>
     <!-- <button class="logout" @click="logout">LOGOUT</button> -->
   </div>
-  <!-- <div class="content"> -->
     <div class="container">
-      <!-- <div class="row"> -->
-
         <div class="col-md-6 contents soma">
           <div class="row justify-content-center">
             <div class="col-md-8">
               <div class="mb-4">
                 <h3>Signup</h3>
-                <!-- <p class="mb-4">
-                 Welcome
-                </p> -->
               </div>
               <form class="infos" v-on:submit.prevent="Signup">
                 <div class="form-group last mb-4">
                   <label for="inputEmail4"></label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputEmail4"
-                    placeholder="First Name"
-                    required
-                    v-model="clientData.firstname"
-                  />
+                  <input type="text" class="form-control" id="inputEmail4" placeholder="First Name" required v-model="clientData.firstname" />
                 </div>
                 <div class="form-group last mb-4">
                   <label for="inputPassword4"></label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Last Name"
-                    required
-                    v-model="clientData.lastname"
-                  />
+                  <input type="text" class="form-control" id="inputPassword4" placeholder="Last Name" required v-model="clientData.lastname" />
                 </div>
 
                 <div class="form-group last mb-4">
                   <label for="inputAddress2"></label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    id="inputAddress2"
-                    placeholder="Age?"
-                    min="18"
-                    required
-                    v-model="clientData.age"
-                  />
+                  <input type="number" class="form-control" id="inputAddress2" placeholder="Age?" min="18" required v-model="clientData.age" />
                 </div>
 
-                <button type="submit" class="btn btn-primary btnvalider">
-                  Signup
-                </button>
+                <button type="submit" class="btn btn-primary btnvalider"> Signup</button>
 
                 <div>
                   <p class="mt-5 pb-lg-2" style="color: #000">
@@ -71,7 +41,6 @@
               </form>
             </div>
           </div>
-        <!-- </div> -->
       </div>
     </div>
   </div>
@@ -93,11 +62,10 @@ export default {
   },
   methods: {
     async Signup() {
-      // GET request using fetch with async/await
       const response = await fetch(
         "http://localhost/brief-6/back-end/api/User/addUser",
         {
-          method: "POST", // or 'PUT'
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
@@ -105,12 +73,6 @@ export default {
         }
       );
       const data = await response.json();
-      this.ref = data.reference;
-      console.log(this.ref);
-      this.ref = "";
-      this.clientData.firstname = "";
-      this.clientData.lastname = "";
-      this.clientData.age = "";
       this.$router.push("/Login");
       this.$swal("This is your ID. Please don't lose it.</br>" + data.reference );
     },

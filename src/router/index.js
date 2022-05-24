@@ -27,11 +27,7 @@ const routes = [
     name: 'Signup',
     component: Signup,
   },
-  // {
-  //   path: '/Dashbord',
-  //   name: 'Dashbord',
-  //   component: Dashbord,
-  // },
+,
   {
     path: '/reservation',
     name: 'Reservation',

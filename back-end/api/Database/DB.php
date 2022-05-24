@@ -12,6 +12,7 @@ class DB
     public static function connect()
     {
 
+        $db = new DB();
         $con = new PDO("mysql:host=localhost;dbname=api", "root", '');
 
         return $con;

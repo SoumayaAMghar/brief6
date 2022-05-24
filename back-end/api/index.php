@@ -1,11 +1,10 @@
 <?php
 
-// define('URLR','http://localhost/ajax/test/Api');
-
 require 'autoload.php';
+
 if(isset($_GET['page']))
 $parametrs=explode('/',$_GET['page']);
-if(isset($parametrs[0]) & !empty($parametrs[0]) )
+if(isset($parametrs[0]) && !empty($parametrs[0]) )
 {
     $controller=ucfirst($parametrs[0]);
     $file='controllers/'.$controller.'Controller'.'.php';

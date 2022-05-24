@@ -14,6 +14,7 @@ class RdvController{
         header('Content-Type: application/json');
         header('Access-Control-Allow-Methods: POST');
         header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
+
         $data = json_decode(file_get_contents("php://input"));
         $rdv=new Rdv();
         // var_dump($data);
@@ -22,7 +23,7 @@ class RdvController{
         $rdv->setHoraire($data->horaire);
         $rdv->setTypeCons($data->typeCons);
         $rdv->setReference($data->reference);
-        $s=$rdv->ajouterRdv();
+        $s = $rdv->ajouterRdv();
         echo json_encode($s);
                 
         // }
@@ -32,13 +33,12 @@ class RdvController{
     { 
         header('Access-Control-Allow-Origin: *');
         header('Content-Type: application/json');
-        header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
+        header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods');
 
          if($_SERVER['REQUEST_METHOD']=='GET'){
-        
-        $rdv=new Rdv();
-        $tab=$rdv->afficherRdv($ref);
-        echo json_encode($tab);
+                $rdv=new Rdv();
+                $tab=$rdv->afficherRdv($ref);
+                echo json_encode($tab);
          }
     }
     public function afficherHr($date)

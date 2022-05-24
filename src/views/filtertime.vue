@@ -1,4 +1,4 @@
-/* eslint-disable vue/no-unused-vars */
+
 <template>
     <div class="container">
         <div class="row">
@@ -36,7 +36,7 @@
     </div>
 </template>
 <script>
-/* eslint-disable */
+
 export default {
     name: "Reservation",
     data() {
@@ -46,16 +46,7 @@ export default {
         };
     },
     methods: {
-        inArray(val, tab) {
-            var length = tab.length;
-            console.log(val + "rrrz");
-            for (var i = 0; i < length; i++) {
-                if (tab[i] != val) return "disabled";
-            }
-            return "selected";
-        },
         async getTime(val) {
-            console.log("im in");
             const response = await fetch(
                 "http://localhost/brief-6/back-end/api/rdv/afficherHr/" + val
             );

@@ -104,9 +104,6 @@ export default {
       }
     },
   },
-  mounted: function () {
-    this.ref = this.$route.params.ref;
-  },
 };
 </script>
 <style >

@@ -6,6 +6,10 @@
 class UserController //UtilisateurController
 {
 
+    public function index(){
+        header('location:http://localhost:8080');
+    }
+
     public function addUser() //ajouterUtil
     {
         header('Access-Control-Allow-Origin: *');
