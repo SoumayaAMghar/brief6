@@ -47,4 +47,5 @@ class UserController //UtilisateurController
         $u = $user->Signin($ref);
         echo json_encode($u);
     }
+
 }

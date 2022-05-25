@@ -89,6 +89,12 @@ export default {
       erreur: "",
     };
   },
+  mounted() {
+    let refer_1 = localStorage.getItem("refl");
+    if (!refer) {
+      this.$router.push("/");
+    }
+  },
   methods: {
     async search() {
       const response = await fetch(
@@ -100,9 +106,14 @@ export default {
         this.erreur = data.message;
         console.log(this.erreur);
       } else {
-        this.$router.push("/rdv/" + this.refl);
+        localStorage.setItem("refl", this.refl);
+        this.$router.push("/rdv");
+        console.log(this.refl);
       }
     },
+  },
+  mounted: function () {
+    this.ref = this.$route.params.ref;
   },
 };
 </script>

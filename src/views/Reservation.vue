@@ -13,7 +13,7 @@
                       {{ erreur }}
                     </div>
                   </div>
-                  <form class="mx-1 mx-md-4" v-on:submit.prevent="Submit">
+                  <form class="mx-1 mx-md-4" v-on:submit.prevent="Submt">
                     <div
                       class="d-flex flex-row justify-content-center align-items-center mb-4"
                     >
@@ -86,6 +86,7 @@
   </section>
 </template>
 <script>
+import { reference } from '@popperjs/core';
 export default {
   name: "Reservation",
   data() {
@@ -112,29 +113,43 @@ export default {
       },
     };
   },
+  mounted() {
+    this.refer();
+  },
   methods: {
-    async Submit() {
+    async Submt() {
       if (
         this.rdvData.horaire != "Choose a Timeframe" &&
         this.rdvData.typeCons != ""
       ) {
+        
         // GET request using fetch with async/await
-        const response = await fetch(
+
+        const ref = localStorage.getItem('refl');
+        console.log({ref});
+        let response = await fetch(
           "http://localhost/brief-6/back-end/api/rdv/ajouterRdv",
           {
             method: "POST", // or 'PUT'
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(this.rdvData),
-          }
+            body: JSON.stringify({...this.rdvData,reference: ref}),
+            
+          },
+        
         );
-        this.$router.push("/rdv/" + this.$route.params.ref);
+
+        this.$router.push("/rdv");
         this.$swal("Success!", "Your reservation has been made!", "success");
       } else {
         this.erreur = "Please fill in all the fields";
       }
     },
+    refer(){
+        this.ref = (localStorage.getItem('refl'));
+        console.log(this.ref);
+        },
     async getTime(val) {
       const response = await fetch(
         "http://localhost/brief-6/back-end/api/rdv/afficherHr/" + val

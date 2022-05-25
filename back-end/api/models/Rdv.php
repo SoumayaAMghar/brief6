@@ -30,13 +30,18 @@ class Rdv{
 
      public function ajouterRdv()
     {
-        $qr='INSERT into rendezvous (date,horaire,typeCons,reference) values("'.$this->date.'","'.$this->horaire.'","'.$this->typeCons.'","'.$this->reference.'")';
+        $qr='INSERT into rendezvous (date,horaire,typeCons,reference) values(? ,? ,? , ?)';
         $res=DB::connect()->prepare($qr);
-        if($res->execute()){
-            return 'ok';
+        if($res->execute([
+            $this->date,
+            $this->horaire,
+            $this->typeCons,
+            $this->reference
+        ])){
+            return ['message' => 'ok'];
         }
         else{
-            return 'no';
+            return ['message' => 'no'];
         }
 
     }

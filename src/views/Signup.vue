@@ -76,6 +76,7 @@ export default {
       this.$router.push("/Login");
       this.$swal("This is your ID. Please don't lose it.</br>" + data.reference );
     },
+
   },
 };
 </script>

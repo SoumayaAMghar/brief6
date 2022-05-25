@@ -75,7 +75,6 @@ class User
        }
         
         //    $res->close();
-           $res=null;
-      
+           $res=null; 
     }
 }

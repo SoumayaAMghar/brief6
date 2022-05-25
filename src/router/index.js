@@ -13,7 +13,7 @@ const routes = [
     component: Home,
   },
   {
-    path: "/rdv/:ref",
+    path: "/rdv",
     name: "RendezVous",
     component: Rendv,
   },
@@ -34,7 +34,7 @@ const routes = [
     component: Reservation,
   },
   {
-    path: "/reservation/:ref",
+    path: "/reservation",
     name: "Reservation",
     component: Reservation,
   },
